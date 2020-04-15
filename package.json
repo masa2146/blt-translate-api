@@ -1,0 +1,24 @@
+{
+  "name": "blt-translate-api",
+  "version": "1.0.0",
+  "description": "Free and unlimited translate API. This api use Microsoft and Yandex translate service. ",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Free",
+    "translator.",
+    "Free",
+    "Translate",
+    "API."
+  ],
+  "author": "Fatih Bulut",
+  "license": "GPL-3.0"
+}
