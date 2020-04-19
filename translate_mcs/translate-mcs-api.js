@@ -1,14 +1,18 @@
 var languages = require('../translate_ynd/languages');
-var querystring = require('querystring');
-const axios = require('axios')
+const fetch = require('node-fetch');
+const { URL, URLSearchParams } = require('url');
+const globalId = require("../generator/GlobalId");
 
-function translate(text, opt) {
-    var url = "https://www.bing.com/ttranslatev3";
+
+
+function translate(text, opt) {    
+
+console.log("GLOBASL: "+global.bindID);
 
     return new Promise(function (resolve, reject) {
 
         if (opt.to == null || opt.to == "") {
-            return reject(new Error("Target language is null"));
+             reject("Target language is null");
         }
 
         if (opt.from == "zh-CN") {
@@ -25,32 +29,31 @@ function translate(text, opt) {
             opt.to = "zh-Hant";
         }
 
-        var parameters = { fromLang: opt.from, text: text, to: opt.to };
+        const params = new URLSearchParams();
+         
+        params.append("fromLang", opt.from);
+        params.append("text", text);
+        params.append("to", opt.to);
+
         var data = {
             isVertical: "1",
-            IG: "D7A8614BE6B2403AA94E971533395BB9",
+            IG:  globalId.getBindID(),//"D7A8614BE6B2403AA94E971533395BB9",
             IID: "translator.5026.1"
         };
+        var url = new URL('https://www.bing.com/ttranslatev3');
+        url.search = new URLSearchParams(data).toString();
 
-        var tempUrl = url + '?' + querystring.stringify(data);
-        var res = { param: parameters, url: tempUrl };
 
-        axios({
+        fetch( url,{
             method: 'post',
-            url: res.url,
-            data: querystring.stringify({
-                fromLang: res.param.fromLang,
-                text: res.param.text,
-                to: res.param.to
-            }),
+            body: params,
             headers: {
                 'Accept': '*/*',
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
             }
-        }).then(obj => {
-            resolve(obj.data);
-        }).catch(function (err) {
-            console.log("MICROSOFT TRANSLATE ERROR: " + err);
+        }).then(res => res.json())
+        .then(json => resolve(json)).catch(function (err) {
+            console.log("MICROSOFT TRANSLATE ERROR: "+err);
             reject(new Error("Microsoft Translate Error"));
         });
     });
