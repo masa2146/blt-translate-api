@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 
 
 
-function generateBingTrasnlatorId() {
+function generateMicrosoftTrasnlatorId() {
 
     return new Promise(function (resolve, reject) {
 
@@ -87,4 +87,4 @@ function generateYandexTranslatorId() {
 
 */
 
-module.exports = { generateBingTrasnlatorId, generateYandexTranslatorId }
+module.exports = { generateMicrosoftTrasnlatorId, generateYandexTranslatorId }
