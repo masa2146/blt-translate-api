@@ -18,8 +18,8 @@ app.get('/api/translate', function (req, res) {
 
     var startDate = moment();
     var q = url.parse(req.url, true).query;
-
-    bltTranslate.translate(q,4).then(function (result) {
+    var apiData={useAPI:true,apiKey:"<YOUR_YANDEX_API_KEY>"}
+    bltTranslate.translate(q,4,apiData).then(function (result) {
         res.json(result);
         console.log('Request took: ' + moment().diff(startDate) + ' ms.');
     }).catch(err => res.json({message:err}));

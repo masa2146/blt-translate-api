@@ -4,6 +4,7 @@ const generator          = require('./utils/Generator');
 const globalId           = require("./utils/GlobalId");
 const OptionalData       = require("./data/OptionalData")
 const ErrorMessage       = require("./data/ErrorMessage");
+const YandexData         = require("./data/YandexData")
 const cron               = require('cron');
 const fs                 = require('fs');
 
@@ -20,9 +21,13 @@ var optionalValue;
  * - 2: At first Yandex Trasnlate runs then Microsoft Translate runs. 
  * - 3: just run Microsoft Translate.
  * - 4: just run Yandex Trasnlate.
+ * @param {*} apiData inclue Yandex Translate api data. If you want to use free Yandex Translate then you can use default value
+ * but if you want legal Yandex Translate API KEY then you must set this data {useAPI=false,apiKey="<YOUR_API_KEY>"} 
  */
-function translate(data,options=OptionalData.MIC2YNDX) {
+function translate(data,options=OptionalData.MIC2YNDX,apiData = {useAPI:false,apiKey:""}) {
 
+    YandexData.LEGAL_API_KEY = apiData.apiKey;
+    YandexData.API_ACTIVE    = apiData.useAPI;
 
     if (isRunningCron == false) {
         startCrony();
@@ -34,13 +39,20 @@ function translate(data,options=OptionalData.MIC2YNDX) {
 
         outsideResolve = resolve;
         outsideReject  = reject; 
-
         if (data.from == null) {
             data.from =  "auto-detect";
             if(options == OptionalData.MIC2YNDX || options == OptionalData.JUSTMIC ){
                 startMicrosoftTranslate(data);
             }
-            else{
+            else if(options == OptionalData.YNDX2MIC || options == OptionalData.JUSTYNDX){
+                startYandexTranslate(data);
+            }
+        }
+        else{
+            if(options == OptionalData.MIC2YNDX || options == OptionalData.JUSTMIC ){
+                startMicrosoftTranslate(data);
+            }
+            else if(options == OptionalData.YNDX2MIC || options == OptionalData.JUSTYNDX){
                 startYandexTranslate(data);
             }
         }

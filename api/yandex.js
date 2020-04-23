@@ -9,7 +9,6 @@ var givenParams = {from:"",to:"",text:""};
 
 function translate(req) {
 
-
     return new Promise(function (resolve, reject) {
 
         if (req.to == null || req.to == "") {
