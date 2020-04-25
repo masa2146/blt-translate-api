@@ -14,7 +14,6 @@ const generator          = require('./utils/Generator');
 var isRunningCron = false;
 var outsideResolve;
 var outsideReject;
-var optionalValue;
 
 
 class BltTranslate{
@@ -35,15 +34,15 @@ class BltTranslate{
      */
      translate(data,options=OptionalData.MIC2YNDX,apiData = {useAPI:false,apiKey:""}) {
 
-        var that = this;
         YandexData.LEGAL_API_KEY = apiData.apiKey;
         YandexData.API_ACTIVE    = apiData.useAPI;
 
+        OptionalData.SELECTED = options;
+
         if (isRunningCron == false) {
             this.startCrony();
-            this.readIdData();
+            readIdData();
         }
-        optionalValue = options;
 
         return new Promise(function (resolve, reject) {
             
@@ -56,54 +55,18 @@ class BltTranslate{
                     startMicrosoftTranslate(data);
                 }
                 else if(options == OptionalData.YNDX2MIC || options == OptionalData.JUSTYNDX){
-                    that.startYandexTranslate(data);
+                    startYandexTranslate(data);
                 }
             }
             else{
                 if(options == OptionalData.MIC2YNDX || options == OptionalData.JUSTMIC ){
-                    that.startMicrosoftTranslate(data);
+                    startMicrosoftTranslate(data);
                 }
                 else if(options == OptionalData.YNDX2MIC || options == OptionalData.JUSTYNDX){
-                    that.startYandexTranslate(data);
+                    startYandexTranslate(data);
                 }
             }
         });
-    }
-
-     startMicrosoftTranslate(data){
-        var that = this;
-        console.log("MICROSOFT TRANSLATE")
-        microsoftTranslate.translate(data).then(function (result) {
-            outsideResolve(result);
-        }).catch(function (err) {
-            console.log(err)
-            if(optionalValue == OptionalData.MIC2YNDX){
-                that.startYandexTranslate(data)
-            }
-            else{
-                outsideReject(ErrorMessage.GLOBAL_TRANSLATE_ERROR)
-            }
-        
-        
-        });
-    }
-
-     startYandexTranslate(data){
-        var that = this;
-        console.log("YANDEX TRANSLATE")
-            yandexTranslate.translate(data).then(function (result) {
-                outsideResolve(result);
-            }).catch(err => {
-                console.log(err)
-                if(optionalValue == OptionalData.YNDX2MIC){
-                    that.startMicrosoftTranslate(data);
-                }
-                else{
-                    outsideReject(ErrorMessage.GLOBAL_TRANSLATE_ERROR)
-                }
-                
-            });
-        
     }
 
     /**
@@ -112,42 +75,84 @@ class BltTranslate{
      * 
      * */
      startCrony() {
-        var that = this;
-        console.log("START CRONY")
+        startBrowserProxy()
         if(isRunningCron == true){
             var cronJob = cron.job("0 0 */1 * * *", function () {
-                that.generateID();
+                generateID();
             });
             cronJob.start();
         }
         else{
-            this.generateID();
+            generateID();
         }
-
-        
         isRunningCron = true;
-    }
-
-     generateID(){
-        var that = this;
-        console.log("generateID")
-        generator.generateYandexTranslatorId().then(yndxData => {
-            generator.generateMicrosoftTrasnlatorId().then(bingData => {
-                let IDData = { bingId: bingData, yandexId: yndxData };
-                fs.writeFileSync(__dirname+'/data/config.json', JSON.stringify(IDData));
-                console.log("YANDEX ID  : " + yndxData);
-                console.log("BING ID    : " + bingData);
-                that.readIdData();
-
-            });
-        });
     }
 
     /**
      * 
-     * Read generated id from config.json file
+     * @param {*} config create new proxy config data
      */
-     readIdData() {
+    setConfig(config){
+        return new Promise(function(resolve,reject){
+            if(config != null || config != undefined){
+                ConfigData.defaultConfig = config;
+            }
+            console.log("setconfig")
+            startBrowserProxy()
+            resolve()
+        })
+    }
+}
+
+function startMicrosoftTranslate(data){
+    console.log("MICROSOFT TRANSLATE")
+    microsoftTranslate.translate(data).then(function (result) {
+        outsideResolve(result);
+    }).catch(function (err) {
+        console.log(err)
+        if(OptionalData.SELECTED == OptionalData.MIC2YNDX){
+            startYandexTranslate(data)
+        }
+        else{
+            outsideReject(ErrorMessage.GLOBAL_TRANSLATE_ERROR)
+        }
+    });
+}
+
+function startYandexTranslate(data){
+    console.log("YANDEX TRANSLATE")
+    yandexTranslate.translate(data).then(function (result) {
+        outsideResolve(result);
+    }).catch(err => {
+        console.log(err)
+        if(OptionalData.SELECTED == OptionalData.YNDX2MIC){
+            startMicrosoftTranslate(data);
+        }
+        else{
+            outsideReject(ErrorMessage.GLOBAL_TRANSLATE_ERROR)
+        }
+    });
+}
+
+function generateID(){
+    console.log("generateID")
+    generator.generateYandexTranslatorId().then(yndxData => {
+        generator.generateMicrosoftTrasnlatorId().then(bingData => {
+            let IDData = { bingId: bingData, yandexId: yndxData };
+            fs.writeFileSync(__dirname+'/data/config.json', JSON.stringify(IDData));
+            console.log("YANDEX ID  : " + yndxData);
+            console.log("BING ID    : " + bingData);
+            readIdData();
+
+        });
+    });
+}
+
+/**
+ * 
+ * Read generated id from config.json file
+ */
+function readIdData() {
         fs.readFile(__dirname+'/data/config.json', (err, data) => {
             if(data != undefined){
                 let val = JSON.parse(data);
@@ -160,51 +165,35 @@ class BltTranslate{
         });
     }
 
-    /**
-     * 
-     * @param {*} config create new proxy config data
-     */
-    setConfig(config){
-        var that = this
-        return new Promise(function(resolve,reject){
-            if(config != null || config != undefined){
-                ConfigData.defaultConfig = config;
-            }
-            that.startBrowserProxy()
-            resolve()
-        })
-
+function startBrowserProxy(){
+    var filePath   = ""
+    var runCommand = ""
+    var parameters = []
+    if(os.platform().includes("win")){
+        console.log("win girdi")
+        filePath = __dirname + "\\libs\\browsermob-proxy\\bin\\browsermob-proxy.bat"
+        runCommand = filePath;
+        parameters = ["-port" , ConfigData.defaultConfig.browserMob.port]
     }
-
-    startBrowserProxy(){
-        var filePath   = ""
-        var runCommand = ""
-        var parameters = []
-        if(os.platform().includes("win")){
-            console.log("win girdi")
-            filePath = __dirname + "\\libs\\browsermob-proxy\\bin\\browsermob-proxy.bat"
-            runCommand = filePath;
-            parameters = ["-port" , ConfigData.defaultConfig.browserMob.port]
-        }
-        else{
-            filePath = __dirname + "/libs/browsermob-proxy/bin/browsermob-proxy"
-            runCommand = "sh"
-            parameters = [filePath, "-port" , ConfigData.defaultConfig.browserMob.port]
-        }
-       
-        var cmd = filePath + " -port " + ConfigData.defaultConfig.browserMob.port
-    
-        var out = fs.openSync("output.log","a")
-        var err = fs.openSync("output.log","a")
-        // [ 'ignore', 'ignore', 'ignore' ]
-        // [ 'ignore',out, err ]
-        console.log("oncesi")
-    
-        spawn(runCommand, parameters, {
-            stdio: [ 'ignore',out, err ], // piping stdout and stderr to out.log
-            detached: true
-        }).unref();
+    else{
+        filePath = __dirname + "/libs/browsermob-proxy/bin/browsermob-proxy"
+        runCommand = "sh"
+        parameters = [filePath, "-port" , ConfigData.defaultConfig.browserMob.port]
     }
+   
+    var cmd = filePath + " -port " + ConfigData.defaultConfig.browserMob.port
+
+    var out = fs.openSync("output.log","a")
+    var err = fs.openSync("output.log","a")
+    // [ 'ignore', 'ignore', 'ignore' ]
+    // [ 'ignore',out, err ]
+    console.log("oncesi")
+
+    spawn(runCommand, parameters, {
+        stdio: [ 'ignore',out, err ], // piping stdout and stderr to out.log
+        detached: true,
+        shell: false, windowsHide: true
+    }).unref();
 }
 
 module.exports = BltTranslate

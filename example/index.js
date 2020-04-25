@@ -7,13 +7,6 @@ var app = express();
 
 var bltTranslate = new BltTranslate()
 
-//Example proxy config 
-// this config data use to create new Free Yandex Translate ID 
-const defaultConfig = {
-    browserMob:{ host:'localhost',  port: 7778, protocol:'http' },
-    };
-
-bltTranslate.setConfig(defaultConfig)
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

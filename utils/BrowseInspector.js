@@ -2,6 +2,7 @@ const webdriver = require('selenium-webdriver');
 const selProxy = require('selenium-webdriver/proxy');
 const oldBmpClient = require('browsermob-proxy-client')
 const firefox = require('selenium-webdriver/firefox');
+const firefoxdriver = require('geckodriver');
 const ConfigData = require("../data/ConfigData")
 
 function startInpect(url,) {
@@ -44,7 +45,7 @@ function getRequestUrls(requestEntries) {
     var i = 0;
     requestEntries.forEach(obj => {
         i = i + 1
-      //  console.log(i + ' request: ', obj.request.url);
+        console.log(i + ' request: ', obj.request.url);
         urls.push(obj.request.url);
     });
     return urls

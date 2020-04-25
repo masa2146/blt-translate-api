@@ -1,18 +1,20 @@
+^CTerminate batch job (Y/N)? 
+^CTerminate batch job (Y/N)? 
 Running BrowserMob Proxy using LittleProxy implementation. To revert to the legacy implementation, run the proxy with the command-line option '--use-littleproxy false'.
-[INFO  2020-04-25T15:10:32,578 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
-[INFO  2020-04-25T15:10:32,632 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
-[INFO  2020-04-25T15:10:32,661 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
-[INFO  2020-04-25T15:10:32,754 org.eclipse.jetty.util.log] (main) Started SelectChannelConnector@0.0.0.0:7778 
-[INFO  2020-04-25T15:10:53,371 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-19) Starting proxy at address: 0.0.0.0/0.0.0.0:8081 
-[INFO  2020-04-25T15:10:53,425 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-19) Proxy listening with TCP transport 
-[INFO  2020-04-25T15:10:53,493 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-19) Proxy started at address: /0:0:0:0:0:0:0:0:8081 
+[INFO  2020-04-25T17:29:53,562 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2020-04-25T17:29:53,591 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2020-04-25T17:29:53,632 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[INFO  2020-04-25T17:29:53,760 org.eclipse.jetty.util.log] (main) Started SelectChannelConnector@0.0.0.0:7778 
 Running BrowserMob Proxy using LittleProxy implementation. To revert to the legacy implementation, run the proxy with the command-line option '--use-littleproxy false'.
-[INFO  2020-04-25T15:18:25,937 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
-[INFO  2020-04-25T15:18:25,965 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
-[INFO  2020-04-25T15:18:25,992 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
-[WARN  2020-04-25T15:18:26,095 org.eclipse.jetty.util.log] (main) FAILED SelectChannelConnector@0.0.0.0:7778: java.net.BindException: Address already in use 
-[WARN  2020-04-25T15:18:26,096 org.eclipse.jetty.util.log] (main) FAILED org.eclipse.jetty.server.Server@447a020: java.net.BindException: Address already in use 
-[ERROR 2020-04-25T15:18:26,096 net.lightbody.bmp.proxy.Main] (main) Failed to start Jetty server. Aborting. java.net.BindException: Address already in use
+[INFO  2020-04-25T17:30:54,861 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-20) Starting proxy at address: 0.0.0.0/0.0.0.0:8081 
+[INFO  2020-04-25T17:30:54,918 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-20) Proxy listening with TCP transport 
+[INFO  2020-04-25T17:30:54,974 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-20) Proxy started at address: /0:0:0:0:0:0:0:0:8081 
+[INFO  2020-04-25T17:30:55,104 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2020-04-25T17:30:55,130 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2020-04-25T17:30:55,159 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[WARN  2020-04-25T17:30:55,285 org.eclipse.jetty.util.log] (main) FAILED SelectChannelConnector@0.0.0.0:7778: java.net.BindException: Address already in use 
+[WARN  2020-04-25T17:30:55,286 org.eclipse.jetty.util.log] (main) FAILED org.eclipse.jetty.server.Server@447a020: java.net.BindException: Address already in use 
+[ERROR 2020-04-25T17:30:55,287 net.lightbody.bmp.proxy.Main] (main) Failed to start Jetty server. Aborting. java.net.BindException: Address already in use
 	at sun.nio.ch.Net.bind0(Native Method) ~[?:1.8.0_252]
 	at sun.nio.ch.Net.bind(Net.java:433) ~[?:1.8.0_252]
 	at sun.nio.ch.Net.bind(Net.java:425) ~[?:1.8.0_252]
@@ -41,5 +43,163 @@ Caused by: java.net.BindException: Address already in use
 	at org.eclipse.jetty.server.Server.doStart(Server.java:269)
 	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:55)
 	at net.lightbody.bmp.proxy.Main.main(Main.java:64)
-[INFO  2020-04-25T15:48:06,617 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Shutting down proxy server immediately (non-graceful) 
-[INFO  2020-04-25T15:48:06,620 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Closing all channels (non-graceful) 
+[INFO  2020-04-25T17:32:47,411 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-21) Starting proxy at address: 0.0.0.0/0.0.0.0:8082 
+[INFO  2020-04-25T17:32:47,413 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-21) Proxy listening with TCP transport 
+[INFO  2020-04-25T17:32:47,414 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-21) Proxy started at address: /0:0:0:0:0:0:0:0:8082 
+Running BrowserMob Proxy using LittleProxy implementation. To revert to the legacy implementation, run the proxy with the command-line option '--use-littleproxy false'.
+[INFO  2020-04-25T17:32:48,379 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2020-04-25T17:32:48,409 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2020-04-25T17:32:48,447 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[WARN  2020-04-25T17:32:48,588 org.eclipse.jetty.util.log] (main) FAILED SelectChannelConnector@0.0.0.0:7778: java.net.BindException: Address already in use 
+[WARN  2020-04-25T17:32:48,589 org.eclipse.jetty.util.log] (main) FAILED org.eclipse.jetty.server.Server@447a020: java.net.BindException: Address already in use 
+[ERROR 2020-04-25T17:32:48,590 net.lightbody.bmp.proxy.Main] (main) Failed to start Jetty server. Aborting. java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[?:1.8.0_252]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[?:1.8.0_252]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[?:1.8.0_252]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220) ~[?:1.8.0_252]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:85) ~[?:1.8.0_252]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:162) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:356) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:240) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:55) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:269) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:55) ~[browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.proxy.Main.main(Main.java:64) [browsermob-dist-2.1.4.jar:?]
+
+Exception in thread "main" net.lightbody.bmp.exception.JettyException: Unable to start Jetty server
+	at net.lightbody.bmp.proxy.Main.main(Main.java:68)
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:85)
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:162)
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:356)
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:240)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:55)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:269)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:55)
+	at net.lightbody.bmp.proxy.Main.main(Main.java:64)
+[ERROR 2020-04-25T17:32:51,533 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-1-ClientToProxyWorker-4) (AWAITING_INITIAL) [id: 0x467ad0d8, L:/127.0.0.1:8082 - R:/127.0.0.1:36194]: Caught an exception on ClientToProxyConnection io.netty.handler.codec.DecoderException: javax.net.ssl.SSLException: Received fatal alert: unknown_ca
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:442) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:248) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1334) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:926) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:129) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:651) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_252]
+Caused by: javax.net.ssl.SSLException: Received fatal alert: unknown_ca
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:214) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.fatal(SSLEngineImpl.java:1667) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.fatal(SSLEngineImpl.java:1635) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.recvAlert(SSLEngineImpl.java:1801) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.readRecord(SSLEngineImpl.java:1090) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.readNetRecord(SSLEngineImpl.java:913) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:783) ~[?:1.8.0_252]
+	at javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:626) ~[?:1.8.0_252]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1097) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:968) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:902) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:411) ~[browsermob-dist-2.1.4.jar:?]
+	... 15 more
+
+[ERROR 2020-04-25T17:32:51,916 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-1-ClientToProxyWorker-6) (AWAITING_INITIAL) [id: 0xfc70b6c9, L:/127.0.0.1:8082 - R:/127.0.0.1:36232]: Caught an exception on ClientToProxyConnection io.netty.handler.codec.DecoderException: javax.net.ssl.SSLException: Received fatal alert: unknown_ca
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:442) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:248) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1334) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:926) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:129) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:651) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_252]
+Caused by: javax.net.ssl.SSLException: Received fatal alert: unknown_ca
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:214) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.fatal(SSLEngineImpl.java:1667) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.fatal(SSLEngineImpl.java:1635) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.recvAlert(SSLEngineImpl.java:1801) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.readRecord(SSLEngineImpl.java:1090) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.readNetRecord(SSLEngineImpl.java:913) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:783) ~[?:1.8.0_252]
+	at javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:626) ~[?:1.8.0_252]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1097) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:968) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:902) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:411) ~[browsermob-dist-2.1.4.jar:?]
+	... 15 more
+
+[ERROR 2020-04-25T17:32:53,481 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-1-ClientToProxyWorker-4) (AWAITING_INITIAL) [id: 0x0d16f5e7, L:/127.0.0.1:8082 - R:/127.0.0.1:36256]: Caught an exception on ClientToProxyConnection io.netty.handler.codec.DecoderException: javax.net.ssl.SSLException: Received fatal alert: unknown_ca
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:442) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:248) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1334) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:926) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:129) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:651) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_252]
+Caused by: javax.net.ssl.SSLException: Received fatal alert: unknown_ca
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:214) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.fatal(SSLEngineImpl.java:1667) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.fatal(SSLEngineImpl.java:1635) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.recvAlert(SSLEngineImpl.java:1801) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.readRecord(SSLEngineImpl.java:1090) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.readNetRecord(SSLEngineImpl.java:913) ~[?:1.8.0_252]
+	at sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:783) ~[?:1.8.0_252]
+	at javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:626) ~[?:1.8.0_252]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1097) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:968) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:902) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:411) ~[browsermob-dist-2.1.4.jar:?]
+	... 15 more
+
+[INFO  2020-04-25T17:32:58,006 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-16) Shutting down proxy server gracefully 
+[INFO  2020-04-25T17:32:58,007 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-16) Closing all channels (graceful) 
+[INFO  2020-04-25T17:32:58,011 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-1-ProxyToServerWorker-2) (CONNECTING) [id: 0x15bbd4fe]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.channel.nio.AbstractNioChannel.doClose()(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2020-04-25T17:32:58,011 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-1-ProxyToServerWorker-0) (CONNECTING) [id: 0x1c5fa3e2]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.channel.nio.AbstractNioChannel.doClose()(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2020-04-25T17:32:58,016 org.littleshoot.proxy.impl.ServerGroup] (qtp2089589253-16) Shutting down server group event loops (graceful) 
+[INFO  2020-04-25T17:33:00,221 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-16) Done shutting down proxy server 
+[INFO  2020-04-25T17:33:31,878 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Shutting down proxy server immediately (non-graceful) 
+[INFO  2020-04-25T17:33:31,880 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Closing all channels (non-graceful) 
+[INFO  2020-04-25T17:33:31,881 org.littleshoot.proxy.impl.ServerGroup] (LittleProxy-JVM-shutdown-hook) Shutting down server group event loops (non-graceful) 
+^CTerminate batch job (Y/N)? 
+^CTerminate batch job (Y/N)? 
+^CTerminate batch job (Y/N)? 
+^CTerminate batch job (Y/N)? 
+^CTerminate batch job (Y/N)? 
+^CTerminate batch job (Y/N)? 
+^CTerminate batch job (Y/N)? 
+^CTerminate batch job (Y/N)? 
+'E:\Node.JS_Calisma\blt-translate-api' is not recognized as an internal or external command,
+operable program or batch file.
+^CTerminate batch job (Y/N)? 
+^CTerminate batch job (Y/N)? 
+^CTerminate batch job (Y/N)? 
