@@ -1,0 +1,45 @@
+Running BrowserMob Proxy using LittleProxy implementation. To revert to the legacy implementation, run the proxy with the command-line option '--use-littleproxy false'.
+[INFO  2020-04-25T15:10:32,578 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2020-04-25T15:10:32,632 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2020-04-25T15:10:32,661 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[INFO  2020-04-25T15:10:32,754 org.eclipse.jetty.util.log] (main) Started SelectChannelConnector@0.0.0.0:7778 
+[INFO  2020-04-25T15:10:53,371 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-19) Starting proxy at address: 0.0.0.0/0.0.0.0:8081 
+[INFO  2020-04-25T15:10:53,425 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-19) Proxy listening with TCP transport 
+[INFO  2020-04-25T15:10:53,493 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp2089589253-19) Proxy started at address: /0:0:0:0:0:0:0:0:8081 
+Running BrowserMob Proxy using LittleProxy implementation. To revert to the legacy implementation, run the proxy with the command-line option '--use-littleproxy false'.
+[INFO  2020-04-25T15:18:25,937 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2020-04-25T15:18:25,965 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2020-04-25T15:18:25,992 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[WARN  2020-04-25T15:18:26,095 org.eclipse.jetty.util.log] (main) FAILED SelectChannelConnector@0.0.0.0:7778: java.net.BindException: Address already in use 
+[WARN  2020-04-25T15:18:26,096 org.eclipse.jetty.util.log] (main) FAILED org.eclipse.jetty.server.Server@447a020: java.net.BindException: Address already in use 
+[ERROR 2020-04-25T15:18:26,096 net.lightbody.bmp.proxy.Main] (main) Failed to start Jetty server. Aborting. java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[?:1.8.0_252]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[?:1.8.0_252]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[?:1.8.0_252]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220) ~[?:1.8.0_252]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:85) ~[?:1.8.0_252]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:162) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:356) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:240) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:55) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:269) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:55) ~[browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.proxy.Main.main(Main.java:64) [browsermob-dist-2.1.4.jar:?]
+
+Exception in thread "main" net.lightbody.bmp.exception.JettyException: Unable to start Jetty server
+	at net.lightbody.bmp.proxy.Main.main(Main.java:68)
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:85)
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:162)
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:356)
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:240)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:55)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:269)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:55)
+	at net.lightbody.bmp.proxy.Main.main(Main.java:64)
+[INFO  2020-04-25T15:48:06,617 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Shutting down proxy server immediately (non-graceful) 
+[INFO  2020-04-25T15:48:06,620 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Closing all channels (non-graceful) 

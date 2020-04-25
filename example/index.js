@@ -1,10 +1,19 @@
-var bltTranslate = require("../index");
+var BltTranslate = require("../index");
 var express = require('express');
 var bodyParser = require('body-parser');
 var url = require('url');
 var moment = require('moment');
 var app = express();
 
+var bltTranslate = new BltTranslate()
+
+//Example proxy config 
+// this config data use to create new Free Yandex Translate ID 
+const defaultConfig = {
+    browserMob:{ host:'localhost',  port: 7778, protocol:'http' },
+    };
+
+bltTranslate.setConfig(defaultConfig)
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -15,12 +24,14 @@ app.listen(1923, function () {
 
 app.get('/api/translate', function (req, res) {
 
-
+    // this value just get response time 
     var startDate = moment();
+
     var q = url.parse(req.url, true).query;
-    var apiData={useAPI:true,apiKey:"<YOUR_YANDEX_API_KEY>"}
-    bltTranslate.translate(q,4,apiData).then(function (result) {
+    var apiData = { useAPI: false, apiKey: "<YOUR_YANDEX_API_KEY>" }
+
+    bltTranslate.translate(q, 4, apiData).then(function (result) {
         res.json(result);
         console.log('Request took: ' + moment().diff(startDate) + ' ms.');
-    }).catch(err => res.json({message:err}));
+    }).catch(err => res.json({ message: err }));
 });

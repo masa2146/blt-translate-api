@@ -3,7 +3,7 @@ const fetch         = require('node-fetch');
 const YandexData    = require("../data/YandexData");
 const HttpData      = require("../data/HttpRequestData");
 const ErrorMessage  = require("../data/ErrorMessage");
-
+const ID      = require("../data/IdData");
 
 var givenParams = {from:"",to:"",text:""};
 
@@ -32,7 +32,7 @@ function translate(req) {
                 }
                 else{
                     console.log(result);
-                   // YandexData.API_ACTIVE == true ?  reject(new Error(ErrorMessage.YANDEX_API_TRANSLATE_ERROR)) :  reject(new Error(ErrorMessage.YANDEX_FREE_TRANSLATE_ERROR));
+                    YandexData.API_ACTIVE == true ?  reject(new Error(ErrorMessage.TRANSLATE_NOT_OK)) :  reject(new Error(ErrorMessage.TRANSLATE_NOT_OK));
                 }
             }).catch(err => {
                 console.log(err);
@@ -47,7 +47,7 @@ function translate(req) {
                 }
                 else{
                     console.log(result);
-                    YandexData.API_ACTIVE == true ?  reject(new Error(ErrorMessage.YANDEX_API_TRANSLATE_ERROR)) :  reject(new Error(ErrorMessage.YANDEX_FREE_TRANSLATE_ERROR));
+                    YandexData.API_ACTIVE == true ?  reject(new Error(ErrorMessage.TRANSLATE_NOT_OK)) :  reject(new Error(ErrorMessage.TRANSLATE_NOT_OK));
                 }
             }).catch(err=>{
                 console.log(err);
@@ -78,7 +78,7 @@ function startTranslate(params){
         else{
             //create data for free translate
             var regularParam = {
-                id: "0c3f2563.5ea0a867.70f9f39d-2-0",// This value will create with auto
+                id: ID.YANDEX_ID,//"6b954581.5ea30644.d62de578-0-0",// This value will create with auto
                 srv: YandexData.FREE_TRANSLATE_SRV,
                 lang: params.from + "-" + params.to,
                 reason: YandexData.FREE_TRANSLATE_REASON,

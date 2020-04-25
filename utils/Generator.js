@@ -1,8 +1,8 @@
 const cheerio = require('cheerio');
 const getUrls = require('get-urls');
 const fetch = require('node-fetch');
-
-
+const browseInspector = require("./BrowseInspector");
+const url                = require('url');
 
 function generateMicrosoftTrasnlatorId() {
 
@@ -51,31 +51,26 @@ function generateMicrosoftTrasnlatorId() {
 function generateYandexTranslatorId() {
 
     return new Promise(function (resolve, reject) {
-        url = "https://ceviri.yandex.com.tr/?lang=tr-en&text=kimsin";
-        const urls = Array.from(getUrls(url));
-        var generatedId = "";
+        let baseUrl = "https://ceviri.yandex.com.tr/?lang=tr-en&text=nas%C4%B1ls%C4%B1n";
+        let searchValue = "https://translate.yandex.net/api/v1";
+        let foundValue = ""
+        browseInspector.startInpect(baseUrl).then(result => {
 
-        const requests = urls.map(async url => {
-            const res = await fetch(url);
-            const html = await res.text();
-            const $ = cheerio.load(html, { xmlMode: true });
-            scriptContent = $('body').find('script').html().split('\n')
+            for(var ele in result) {
+               // console.log(result[ele])
+            if (result[ele].includes(searchValue)) {
+                foundValue = result[ele]
+                break;
+            }
+        };
 
-            for (let element of scriptContent) {
-                if (element.includes('SID')) {
-                    var find = '\'';
-                    var re = new RegExp(find, 'g');
-                    generatedId = element.trim().split(':')[1].replace(re, '').replace(',', '')
-                    resolve(generatedId);
-                    break;
-                }
-            }
-            if (generatedId == "" || generatedId == null) {
-                //reject("Error on Yandex generate id");
-                resolve(generatedId);
-            }
-        });
-    });
+        if(foundValue != null || foundValue != undefined || foundValue != ""){
+           resolve(url.parse(foundValue, true).query.id)
+        } 
+      
+    })
+
+});
 
 
 }

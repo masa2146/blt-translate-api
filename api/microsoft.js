@@ -1,6 +1,6 @@
 const { URL, URLSearchParams } = require('url');
 const fetch         = require('node-fetch');
-const globalId      = require("../utils/GlobalId");
+const ID      = require("../data/IdData");
 const MicrosoftData = require("../data/MicrosoftData");
 const HttpData      = require("../data/HttpRequestData");
 const ErrorMessage  = require("../data/ErrorMessage");
@@ -36,7 +36,7 @@ function translate(req) {
 
         var params = {
             isVertical: MicrosoftData.GET_PARAM_IS_VERTICAL,
-            IG: globalId.getBindID(),
+            IG: ID.YANDEX_ID,
             IID: MicrosoftData.GET_PARAM_IID
         };
         var url = new URL(MicrosoftData.FREE_API_URL);

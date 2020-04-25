@@ -5,11 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.19.2",
+    "browsermob-proxy-client": "^0.1.0",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
     "form-data": "^3.0.0",
     "moment": "^2.24.0",
-    "node-cron": "^2.0.3"
+    "node-cron": "^2.0.3",
+    "selenium-webdriver": "^4.0.0-alpha.7"
   },
   "devDependencies": {},
   "scripts": {
