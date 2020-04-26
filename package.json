@@ -1,6 +1,6 @@
 {
   "name": "blt-translate-api",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Free and unlimited translate API. This api use Microsoft and Yandex translate service. ",
   "main": "index.js",
   "dependencies": {
@@ -11,9 +11,11 @@
     "moment": "^2.24.0",
     "node-cron": "^2.0.3",
     "selenium-webdriver": "^4.0.0-alpha.7",
-    "geckodriver":"1.19.1",
-    "child_process":"1.0.2",
-    "cron":"1.8.2"
+    "geckodriver": "1.19.1",
+    "child_process": "1.0.2",
+    "cron": "1.8.2",
+    "node-fetch": "2.6.0",
+    "get-urls": "9.2.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -27,5 +29,16 @@
     "API."
   ],
   "author": "Fatih Bulut",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masa2146/blt-translate-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/masa2146/blt-translate-api/issues"
+  },
+  "homepage": "https://github.com/masa2146/blt-translate-api#readme"
 }
