@@ -17,7 +17,7 @@ You can use legal Yandex Translate API.
 ### Description
 This project contains Microsoft and Yandex Translator. Automatic generate translate id for both translator.
 Id generates every one hour on background(It will get to change  time synchronize in the next time). 
-This background proccess needs **java** and ***Firefox Browser* to run. 
+This background proccess needs **java** and **Firefox Browser** to run. 
 
 Perhaps the id usage may have expired in config.json. So run the project you should wait a few minutes to create new id.
 
