@@ -14,7 +14,7 @@
     "geckodriver": "1.19.1",
     "child_process": "1.0.2",
     "cron": "1.8.2",
-    "node-fetch": "2.6.0",
+    "node-fetch": "2.6.1",
     "get-urls": "9.2.0"
   },
   "devDependencies": {},
